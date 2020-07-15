@@ -1,6 +1,7 @@
 
-  var User = require('../models/user.model');
-
+var User = require('../models/user.model');
+var cloudinary = require('../cloudinary');
+var fs = require('fs');
 module.exports.getUser= async (req,res)=>{
     var user = await User.findAll();
     res.json(user); 
@@ -24,6 +25,25 @@ module.exports.getOneUser= async (req,res)=>{
 
 module.exports.createUser = async function (req,res){
     
+  const uploader = async (path) => await cloudinary.uploads(path, 'Images');
+  
+  const urls = [];
+  const files = req.files;
+    for (const file of files) {
+      const { path } = file;
+      const newPath = await uploader(path)
+      urls.push(newPath)
+      fs.unlinkSync(path)
+    }
+    for(const url of urls){
+        if(url){
+         
+          req.body.avatar = url.url;
+        }
+        
+    }
+     // req.body.password = md5(req.body.password);
+    //  await User.create(req.body);
 
     //req.body.avatar = "aaaa";
     var user = req.body;
