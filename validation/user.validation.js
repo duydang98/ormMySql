@@ -8,10 +8,10 @@ module.exports.userschema = Joi.object().keys({
     phone: Joi.string().regex(/^((09|03|07|08|05)|(9|3|7|8|5))[0-9]{8}$/).required(),
     birthday: Joi.date().max('1-1-2004').iso(),
     age: Joi.number().integer().greater(10),
-    //sex: Joi.string().valid('M', 'F', 'MALE', 'FEMALE').uppercase().required(),
+    sex: Joi.string().valid('M', 'F', 'MALE', 'FEMALE').uppercase().required(),
     name: Joi.string(),
-    avatar: Joi.string(),
-    password: Joi.string().min(7).alphanum().required()
+    avatar: Joi.string()
+    //password: Joi.string().min(7).alphanum().required()
     //sex: Joi.any().valid('M', 'F', 'MALE', 'FEMALE').required(),
 
 });

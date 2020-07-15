@@ -13,6 +13,7 @@ sequelize
     console.error('Unable to connect to the database:', err);
   });
 
+
 app.set('view engine', 'pug');
 app.set('views', './views');
 

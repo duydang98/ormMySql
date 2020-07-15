@@ -11,5 +11,6 @@ var upload = multer({ dest: './public/uploads/' });
 router.get('/user',controller.getUser);
 
 router.post('/user',upload.single('avatar'),validator.body(shema.userschema),controller.createUser);
+router.delete('/user/:id',controller.deleteUser);
 
 module.exports = router;
