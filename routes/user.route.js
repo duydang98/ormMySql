@@ -9,8 +9,8 @@ var upload = multer({ dest: './public/uploads/' });
 
 
 router.get('/user',controller.getUser);
-
+router.get('/user/:id',controller.getOneUser);
 router.post('/user',upload.single('avatar'),validator.body(shema.userschema),controller.createUser);
 router.delete('/user/:id',controller.deleteUser);
-
+router.put('/user/:id',controller.updateUser);
 module.exports = router;
