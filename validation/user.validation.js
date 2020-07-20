@@ -10,8 +10,8 @@ module.exports.userschema = Joi.object().keys({
     age: Joi.number().integer().greater(10),
     sex: Joi.string().valid('M', 'F', 'MALE', 'FEMALE').uppercase().required(),
     name: Joi.string(),
-    avatar: Joi.string()
-    //password: Joi.string().min(7).alphanum().required()
+    avatar: Joi.string(),
+    password: Joi.string().min(7).alphanum().required()
     //sex: Joi.any().valid('M', 'F', 'MALE', 'FEMALE').required(),
 
 });

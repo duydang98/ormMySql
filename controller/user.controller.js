@@ -1,7 +1,8 @@
 
 var User = require('../models/user.model');
-var cloudinary = require('../cloudinary');
+var cloudinary = require('../services/cloudinary');
 var fs = require('fs');
+
 module.exports.getUser= async (req,res)=>{
     var user = await User.findAll();
     res.json(user); 
@@ -25,7 +26,7 @@ module.exports.getOneUser= async (req,res)=>{
 
 module.exports.createUser = async function (req,res){
     
-  const uploader = async (path) => await cloudinary.uploads(path, 'Images');
+  const uploader = async (path) => await cloudinary.uploads(path, 'Images/Users');
   
   const urls = [];
   const files = req.files;

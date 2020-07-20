@@ -13,15 +13,19 @@ module.exports = sequelize.define('User', {
       type: Sequelize.STRING
      
     },
-    email: {
-      type: Sequelize.STRING
-     
-    },
     sex: {
       type: Sequelize.STRING
      
     },
     phone: {
+      type: Sequelize.STRING
+     
+    },
+    email: {
+      type: Sequelize.STRING
+     
+    },
+    password: {
       type: Sequelize.STRING
      
     },
