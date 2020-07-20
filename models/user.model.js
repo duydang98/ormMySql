@@ -1,5 +1,4 @@
 var Sequelize = require('sequelize');
-const { Model } = require('sequelize');
 
 module.exports = sequelize.define('User', {
     // attributes

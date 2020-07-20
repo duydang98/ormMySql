@@ -3,7 +3,7 @@ var app = new express();
 var port = 3000;
 var bodyParser = require('body-parser');
 
-var sequelize = require('./database/conection');
+var sequelize = require('./configs/conection');
 sequelize
   .authenticate()
   .then(() => {
