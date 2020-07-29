@@ -45,9 +45,10 @@ module.exports.createUser = async function (req,res){
           req.body.avatar = url.url;
         }
         
-    }
-    
+    }   
     var user = req.body;
+    //var salt = bcrypt.genSaltSync(8);
+   // console.log(salt);
     user.password = bcrypt.hashSync(user.password,8);
     await User.create(user);
 
@@ -55,6 +56,7 @@ module.exports.createUser = async function (req,res){
         result: user
     })
 };
+
 
 module.exports.deleteUser = async (req,res)=>{
     var id = req.params.id;
